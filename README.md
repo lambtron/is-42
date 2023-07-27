@@ -3,7 +3,35 @@
 This module exposes a boolean function that returns whether or not a given
 parameter is the number 42.
 
-MIT License
+## Installation
+
+In Node:
+
+```bash
+npm install @lambtron/is-42
+```
+
+In Deno, there is no separate install step. You can use `import` it directly:
+
+```js
+import { is42 } from "https://raw.githubusercontent.com/lambtron/is-42/main/mod.ts";
+```
+
+Or if you want to use `npm` specifier:
+
+```js
+import { is42 } from "npm:@lambtron/is-42";
+```
+
+## Usage
+
+```js
+is42(42); // true
+is42(123); // false
+is42('hello'); // false
+```
+
+## MIT License
 
 Copyright 2023 @lambtron
 
