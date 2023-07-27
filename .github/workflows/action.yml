@@ -2,6 +2,8 @@ name: Publish to registry
 on:
   release:
     types: [published]
+  push:
+    branches: [main]
 
 jobs:
   publish_to_npm:
@@ -15,7 +17,7 @@ jobs:
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Setup Deno
-        uses: actions/setup-deno@v1
+        uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
 
