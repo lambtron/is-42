@@ -1,0 +1,31 @@
+name: Publish to registry
+on:
+  release:
+    types: [published]
+
+job:
+  publish_to_npm:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout is-42
+        uses: actions/checkout@v3
+
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Setup Deno
+        uses: actions/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Build npm package
+        run: deno run -A build_npm.ts $RELEASE_VERSION
+
+      - name: Setup Node/npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Publish to npm
+        run: npm publish /npm
