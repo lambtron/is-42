@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "$std/": "https://deno.land/std@0.192.0/",
+    "$dnt": "https://deno.land/x/dnt@0.37.0/mod.ts"
+  }
+}
