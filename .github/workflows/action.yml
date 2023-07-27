@@ -30,4 +30,4 @@ jobs:
           node-version: 18
 
       - name: Publish to npm
-        run: npm publish /npm
+        run: npm publish npm/ --access=public
